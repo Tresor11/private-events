@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SessionHelper
   def logged_in?
     !current_user.nil?

@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 class SessionController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     user = User.find(params[:session][:id])
@@ -13,6 +14,5 @@ class SessionController < ApplicationController
     end
   end
 
-  def destroy
-  end
+  def destroy; end
 end
