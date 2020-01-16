@@ -1,10 +1,27 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
-  def new; end
+  include SessionHelper
+
+  def index
+    @events = Event.all
+  end
+
+  def new
+    @event = Event.new
+  end
 
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.build(event_params)
+    if @event.save
+      redirect_to current_user
+    else
+      render :new
+    end
+  end
+
+  def show
+    @event = Event.find_by(id: params[:id])
   end
 
   private
