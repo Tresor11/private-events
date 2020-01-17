@@ -1,4 +1,22 @@
 <h4> <%=@user.name%> </h4>
 
-<%= link_to  "create ans event", new_event_path %> <br>
-<%= link_to  "events", events_path%>
+<h5>Events you are interested in:</h5>
+
+<%@saved_events.each do |x|%>
+<li><%=x.title%> <%= link_to  "Accept", accept_invite()%></li>
+<%end%>
+
+<br>
+<br>
+
+<h5>Events you'll be attending:</h5>
+
+<%@attending.each do |x|%>
+<li><%=x.title%></li>
+<%end%>
+
+<br>
+<br>
+
+<%= link_to  "Create an event", new_event_path %> <br><br>
+<%= link_to  "All Events", events_path%>

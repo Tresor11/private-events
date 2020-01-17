@@ -16,7 +16,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @events=@user.created_events
+    @events = @user.created_events
+    @saved_events = @user.attended_events
+    @attending = @saved_events.where('bookings.attending = ?', true)
   end
 end
 
