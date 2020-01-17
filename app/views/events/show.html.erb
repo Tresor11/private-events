@@ -1,0 +1,8 @@
+<h1><%=@event.title%></h1>
+<p><%=@event.description%></p>
+<h4>list of attendees</h4>
+<ol>
+<%@attendees.each do |x|%>
+<li><%=x.name%></li>
+<%end%>
+</ol>

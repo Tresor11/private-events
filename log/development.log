@@ -1412,3 +1412,176 @@ app/controllers/events_controller.rb:14:in `create'
   [1m[36mBooking Create (1920.7ms)[0m  [1m[32mINSERT INTO "bookings" ("booked_event_id", "event_attendee_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["booked_event_id", 1], ["event_attendee_id", 2], ["created_at", "2020-01-16 21:35:03.078986"], ["updated_at", "2020-01-16 21:35:03.078986"]]
   [1m[35m (22.0ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ? LIMIT ?[0m  [["booked_event_id", 1], ["LIMIT", 11]]
+Started GET "/events" for 127.0.0.1 at 2020-01-17 19:39:51 +0200
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (76.1ms)
+Completed 200 OK in 2333ms (Views: 2055.6ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-01-17 19:40:09 +0200
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 43ms (Views: 41.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-01-17 19:40:17 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:24
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 1]]
+  ↳ app/views/events/show.html.erb:3
+  Rendered events/show.html.erb within layouts/application (187.0ms)
+Completed 500 Internal Server Error in 986ms (ActiveRecord: 3.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `title' for #<User:0x00007fb5e83737a0>):
+    1: <h1>list if attendees</h1>
+    2: <ol>
+    3: <%@events.each do |x|%>
+    4: <li><%=x.title%></li>
+    5: <%end%>
+    6: </ol>
+  
+app/views/events/show.html.erb:4:in `block in _app_views_events_show_html_erb___1165209701054235823_70209630130700'
+app/views/events/show.html.erb:3:in `_app_views_events_show_html_erb___1165209701054235823_70209630130700'
+Started GET "/events" for 127.0.0.1 at 2020-01-17 19:40:29 +0200
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 58ms (Views: 55.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/events/3" for 127.0.0.1 at 2020-01-17 19:40:32 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:24
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 3]]
+  ↳ app/views/events/show.html.erb:3
+  Rendered events/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 69ms (Views: 66.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/events/3" for 127.0.0.1 at 2020-01-17 19:41:54 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:24
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 3]]
+  ↳ app/views/events/show.html.erb:3
+  Rendered events/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 51ms (Views: 45.1ms | ActiveRecord: 0.8ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."creator_id" = ? LIMIT ?[0m  [["creator_id", 1], ["LIMIT", 11]]
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT  "bookings".* FROM "bookings" WHERE "bookings"."event_attendee_id" = ? LIMIT ?[0m  [["event_attendee_id", 1], ["LIMIT", 11]]
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? LIMIT ?[0m  [["event_attendee_id", 1], ["LIMIT", 11]]
+Started GET "/events/3" for 127.0.0.1 at 2020-01-17 20:09:05 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (22.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:24
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 3]]
+  ↳ app/views/events/show.html.erb:3
+  Rendered events/show.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 4574ms (Views: 4372.4ms | ActiveRecord: 28.5ms)
+
+
+Started GET "/events/3" for 127.0.0.1 at 2020-01-17 20:13:17 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:24
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 3]]
+  ↳ app/views/events/show.html.erb:3
+  Rendered events/show.html.erb within layouts/application (520.0ms)
+Completed 500 Internal Server Error in 576ms (ActiveRecord: 4.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `model' for #<#<Class:0x00007fb609647578>:0x00007fb60964f778>
+Did you mean?  module):
+    5: <%end%>
+    6: </ol>
+    7: 
+    8: <%= button_to  "text", model %>
+  
+app/views/events/show.html.erb:8:in `_app_views_events_show_html_erb___1165209701054235823_70209909155280'
+Started GET "/events/3" for 127.0.0.1 at 2020-01-17 20:13:32 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:24
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.6ms)
+
+
+  
+SyntaxError (/home/tresor/private-events/app/views/events/show.html.erb:16: embedded document meets end of file
+/home/tresor/private-events/app/views/events/show.html.erb:16: syntax error, unexpected end-of-input, expecting end
+          end
+^~~~~~~~~~~~~):
+  
+app/views/events/show.html.erb:16: embedded document meets end of file
+app/views/events/show.html.erb:16: syntax error, unexpected end-of-input, expecting end
+Started GET "/events/3" for 127.0.0.1 at 2020-01-17 20:13:46 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:24
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 3]]
+  ↳ app/views/events/show.html.erb:3
+  Rendered events/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 70ms (Views: 66.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/events/3" for 127.0.0.1 at 2020-01-17 20:16:06 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:24
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (9.2ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<Event:0x00007fb604141dd0>):
+    1: <h1><%=@event.name%></h1>
+    2: <p><%=@event.description%></p>
+    3: <h4>list of attendees</h4>
+    4: <ol>
+  
+app/views/events/show.html.erb:1:in `_app_views_events_show_html_erb___1165209701054235823_70209864598280'
+Started GET "/events/3" for 127.0.0.1 at 2020-01-17 20:16:21 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:24
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 3]]
+  ↳ app/views/events/show.html.erb:5
+  Rendered events/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 54ms (Views: 50.4ms | ActiveRecord: 0.6ms)
+
+
