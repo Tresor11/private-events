@@ -13,6 +13,7 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.created_events.build(event_params)
+    @booking = current_user.bookings.create
     if @event.save
       redirect_to current_user
     else

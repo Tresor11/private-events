@@ -6,3 +6,9 @@
 <li><%=x.name%></li>
 <%end%>
 </ol>
+
+<%= form_for(current_user.bookings.create()) do |f| %>
+<%= hidden_field_tag :booked_event_id, @event.id %>
+<%= hidden_field_tag :attending, true %>
+<%=f.submit 'Attend this event'%>
+<% end %>

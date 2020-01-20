@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  def index; end
+
   def new
     @user = User.new
   end
@@ -17,8 +19,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @events = @user.created_events
-    @saved_events = @user.attended_events
-    @attending = @saved_events.where('bookings.attending = ?', true)
+    @attending = @user.attended_events
+    @event = current_user.created_events.build
+    @upcoming = @attending.upcoming
+    @past = @attending.past
   end
 end
 

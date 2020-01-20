@@ -1,22 +1,30 @@
 <h4> <%=@user.name%> </h4>
 
-<h5>Events you are interested in:</h5>
+<h5>Events you've created:</h5>
+<ul>
 
-<%@saved_events.each do |x|%>
-<li><%=x.title%> <%= link_to  "Accept", accept_invite()%></li>
+<%@events.each do |x|%>
+<li><%=x.title%></li>
 <%end%>
-
+</ul>
 <br>
 <br>
 
 <h5>Events you'll be attending:</h5>
-
-<%@attending.each do |x|%>
+<ul>
+<%@upcoming.each do |x|%>
 <li><%=x.title%></li>
 <%end%>
-
+</ul>
 <br>
+<h5>Events you've attended</h5>
+<ul>
+<%@past.each do |x|%>
+<li><%=x.title%></li>
+<%end%>
+</ul>
 <br>
 
-<%= link_to  "Create an event", new_event_path %> <br><br>
+<%= render  "events/new" %>
 <%= link_to  "All Events", events_path%>
+<%= link_to  "logout", logout_path %>

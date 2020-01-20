@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   resources :users
   resources :events
+  resources :bookings
   get '/login', to: 'session#new'
   post '/login', to: 'session#create'
   get '/logout', to: 'session#destroy'
