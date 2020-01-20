@@ -3327,3 +3327,348 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 132ms (Views: 121.5ms | ActiveRecord: 1.5ms)
 
 
+Started GET "/users/2" for 127.0.0.1 at 2020-01-20 10:04:29 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (39.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (7.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mEvent Load (9.5ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:15
+  [1m[36mEvent Load (35.3ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date < '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:22
+  Rendered events/_new.html.erb (475.7ms)
+  Rendered users/show.html.erb within layouts/application (1158.2ms)
+Completed 500 Internal Server Error in 10396ms (ActiveRecord: 309.8ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: bootstrap-sprockets.
+Load paths:
+  /home/tresor/private-events/app/assets/config
+  /home/tresor/private-events/app/assets/images
+  /home/tresor/private-events/app/assets/javascripts
+  /home/tresor/private-events/app/assets/stylesheets
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /home/tresor/private-events/node_modules):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+  
+app/assets/stylesheets/users.scss:4
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__2275684071115966749_70083571754120'
+Started GET "/users/2" for 127.0.0.1 at 2020-01-20 10:09:05 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (98.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (18.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mEvent Load (77.1ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:15
+  [1m[36mEvent Load (33.7ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date < '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:22
+  Rendered events/_new.html.erb (184.8ms)
+  Rendered users/show.html.erb within layouts/application (1181.1ms)
+Completed 500 Internal Server Error in 4386ms (ActiveRecord: 228.5ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: bootstrap.
+Load paths:
+  /home/tresor/private-events/app/assets/config
+  /home/tresor/private-events/app/assets/images
+  /home/tresor/private-events/app/assets/javascripts
+  /home/tresor/private-events/app/assets/stylesheets
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /home/tresor/private-events/node_modules):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+  
+app/assets/stylesheets/users.scss:4
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__2275684071115966749_70083405119060'
+Started GET "/users/2" for 127.0.0.1 at 2020-01-20 10:10:38 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (9.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (12.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mEvent Load (66.4ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:15
+  [1m[36mEvent Load (33.2ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date < '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:22
+  Rendered events/_new.html.erb (256.7ms)
+  Rendered users/show.html.erb within layouts/application (2050.4ms)
+Completed 500 Internal Server Error in 6356ms (ActiveRecord: 121.8ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: bootstrap.
+Load paths:
+  /home/tresor/private-events/app/assets/config
+  /home/tresor/private-events/app/assets/images
+  /home/tresor/private-events/app/assets/javascripts
+  /home/tresor/private-events/app/assets/stylesheets
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /home/tresor/private-events/node_modules):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+  
+app/assets/stylesheets/users.scss:4
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__2275684071115966749_70083548959280'
+Started GET "/users/2" for 127.0.0.1 at 2020-01-20 10:11:13 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:15
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date < '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:22
+  Rendered events/_new.html.erb (15.1ms)
+  Rendered users/show.html.erb within layouts/application (31.6ms)
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: bootstrap.
+Load paths:
+  /home/tresor/private-events/app/assets/config
+  /home/tresor/private-events/app/assets/images
+  /home/tresor/private-events/app/assets/javascripts
+  /home/tresor/private-events/app/assets/stylesheets
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /home/tresor/private-events/node_modules):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+  
+app/assets/stylesheets/users.scss:4
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__2275684071115966749_70083469023840'
+Started GET "/users/2" for 127.0.0.1 at 2020-01-20 10:12:43 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:15
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date < '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:22
+  Rendered events/_new.html.erb (3.5ms)
+  Rendered users/show.html.erb within layouts/application (293.9ms)
+Completed 500 Internal Server Error in 369ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: bootstrap.
+Load paths:
+  /home/tresor/private-events/app/assets/config
+  /home/tresor/private-events/app/assets/images
+  /home/tresor/private-events/app/assets/javascripts
+  /home/tresor/private-events/app/assets/stylesheets
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /home/tresor/private-events/node_modules):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+  
+app/assets/stylesheets/users.scss:1
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__2275684071115966749_70083574621980'
+Started GET "/" for 127.0.0.1 at 2020-01-20 10:13:15 +0200
+Processing by SessionController#new as HTML
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 143ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: bootstrap.
+Load paths:
+  /home/tresor/private-events/app/assets/config
+  /home/tresor/private-events/app/assets/images
+  /home/tresor/private-events/app/assets/javascripts
+  /home/tresor/private-events/app/assets/stylesheets
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /home/tresor/private-events/node_modules):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+  
+app/assets/stylesheets/users.scss:1
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__2275684071115966749_70083404930820'
+Started GET "/" for 127.0.0.1 at 2020-01-20 10:13:51 +0200
+  [1m[35m (20.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by SessionController#new as HTML
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (80.1ms)
+Completed 500 Internal Server Error in 27167ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery3' with type 'application/javascript'
+Checked in these paths: 
+  /home/tresor/private-events/app/assets/config
+  /home/tresor/private-events/app/assets/images
+  /home/tresor/private-events/app/assets/javascripts
+  /home/tresor/private-events/app/assets/stylesheets
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /home/tresor/private-events/node_modules
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/popper_js-1.16.0/assets/javascripts
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/bootstrap-4.4.1/assets/stylesheets
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/bootstrap-4.4.1/assets/javascripts):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+  
+app/assets/javascripts/application.js:13
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__419884948112480840_70194768805900'
+Started GET "/" for 127.0.0.1 at 2020-01-20 10:15:45 +0200
+Processing by SessionController#new as HTML
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery3' with type 'application/javascript'
+Checked in these paths: 
+  /home/tresor/private-events/app/assets/config
+  /home/tresor/private-events/app/assets/images
+  /home/tresor/private-events/app/assets/javascripts
+  /home/tresor/private-events/app/assets/stylesheets
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /home/tresor/private-events/node_modules
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/popper_js-1.16.0/assets/javascripts
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/bootstrap-4.4.1/assets/stylesheets
+  /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/bootstrap-4.4.1/assets/javascripts):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+  
+app/assets/javascripts/application.js:13
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__419884948112480840_70194787040580'
+Started GET "/" for 127.0.0.1 at 2020-01-20 10:16:33 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/tresor/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by SessionController#new as HTML
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 15372ms (Views: 15365.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-01-20 10:17:38 +0200
+Processing by SessionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g2MMlyalte+pRte+bipyo8UbZvoINgLBbRooWpSttixfSr3RT5aiIfJJZReVIsc+w/d40PZ/rKpur/v0zkQ/XA==", "session"=>{"id"=>"1"}, "commit"=>"Login"}
+  [1m[36mUser Load (31.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/session_controller.rb:7
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 145ms (ActiveRecord: 32.1ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2020-01-20 10:17:38 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (21.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mEvent Load (25.6ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:15
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date < '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:22
+  Rendered events/_new.html.erb (38.0ms)
+  Rendered users/show.html.erb within layouts/application (164.9ms)
+Completed 200 OK in 408ms (Views: 186.2ms | ActiveRecord: 50.1ms)
+
+
