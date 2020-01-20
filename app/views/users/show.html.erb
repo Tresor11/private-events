@@ -1,16 +1,18 @@
-<h4> <%=@user.name%> </h4>
-
-<h5>Events you've created:</h5>
-<ul>
-
-<%@events.each do |x|%>
-<li><%=x.title%></li>
-<%end%>
-</ul>
-<br>
-<br>
-
-<h5>Events you'll be attending:</h5>
+<div class="row">
+  <div class="col-3 m-auto">
+    <%= render  "events/new" %>
+  </div>
+  <div class="col-4 ">
+    <h4> <%=@user.name%> </h4>
+    <h5>Events you've created:</h5>
+    <ul>
+      <%@events.each do |x|%>
+      <li><%=x.title%></li>
+      <%end%>
+    </ul>
+  </div>
+  <div class="col-3 m-auto">
+    <h5>Events you'll be attending:</h5>
 <ul>
 <%@upcoming.each do |x|%>
 <li><%=x.title%></li>
@@ -24,7 +26,8 @@
 <%end%>
 </ul>
 <br>
+  </div>
+</div>
 
-<%= render  "events/new" %>
-<%= link_to  "All Events", events_path%>
-<%= link_to  "logout", logout_path %>
+<%= link_to  "All Events", events_path, class:"btn btn-dark"%>
+<%= link_to  "logout", logout_path , class:"btn btn-danger"%>
