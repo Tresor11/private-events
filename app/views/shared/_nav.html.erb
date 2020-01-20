@@ -1,4 +1,7 @@
 <nav class="nav justify-content-center">
-<%= link_to  "All Events", events_path, class:"btn btn-dark"%>
+<% if logged_in?%>
+<%= link_to  "Home", user_path(current_user), class:"btn btn-dark"%>
+<%= link_to  "All Events", events_path, class:"btn btn-success"%>
 <%= link_to  "logout", logout_path , class:"btn btn-danger"%>
+<% end%>
 </nav>

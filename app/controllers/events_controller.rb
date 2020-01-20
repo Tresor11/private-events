@@ -4,7 +4,8 @@ class EventsController < ApplicationController
   include SessionHelper
 
   def index
-    @events = Event.all
+    @upcoming = Event.upcoming
+    @past = Event.past
   end
 
   def new
@@ -13,11 +14,16 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.created_events.build(event_params)
-    @booking = current_user.bookings.create
     if @event.save
       redirect_to current_user
     else
-      render :new
+      flash.now[:danger] = "Problem creating event"
+      @events = current_user.created_events
+      @attending = current_user.attended_events
+      @event = current_user.created_events.build
+      @upcoming = @attending.upcoming
+      @past = @attending.past
+      render 'users/show'
     end
   end
 

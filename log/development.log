@@ -4083,3 +4083,1956 @@ Processing by EventsController#index as HTML
 Completed 200 OK in 79ms (Views: 54.1ms | ActiveRecord: 0.9ms)
 
 
+Started GET "/" for ::1 at 2020-01-20 19:01:11 +0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by SessionController#new as HTML
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (190.9ms)
+  Rendered shared/_nav.html.erb (2.4ms)
+Completed 200 OK in 21827ms (Views: 21791.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 19:01:40 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (32.3ms)
+  Rendered shared/_nav.html.erb (0.6ms)
+Completed 200 OK in 377ms (Views: 241.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for ::1 at 2020-01-20 19:03:45 +0300
+Processing by SessionController#new as HTML
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (32.8ms)
+Completed 200 OK in 262ms (Views: 255.8ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/login" for ::1 at 2020-01-20 19:04:00 +0300
+Processing by SessionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2OXUM+8U9alSEdbu3Kze7L0uiwj4VaB2ArkTm6bgT62rvkBHWb4lDAjzSHdxHjuJs9Yls+lP5h7MzhWO6yh5sQ==", "session"=>{"id"=>"1"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/session_controller.rb:7
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 18ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-20 19:04:00 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered events/_new.html.erb (42.0ms)
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mEvent Load (1.5ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date < '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:24
+  Rendered users/show.html.erb within layouts/application (123.8ms)
+  Rendered shared/_nav.html.erb (0.7ms)
+Completed 200 OK in 525ms (Views: 360.4ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-20 19:06:28 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered events/_new.html.erb (3.1ms)
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date < '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:24
+  Rendered users/show.html.erb within layouts/application (18.0ms)
+  Rendered shared/_nav.html.erb (0.6ms)
+Completed 200 OK in 226ms (Views: 189.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-20 19:07:58 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered events/_new.html.erb (5.1ms)
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date < '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:24
+  Rendered users/show.html.erb within layouts/application (36.9ms)
+  Rendered shared/_nav.html.erb (0.6ms)
+Completed 200 OK in 2548ms (Views: 2532.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-20 19:08:44 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered events/_new.html.erb (2.9ms)
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date < '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:24
+  Rendered users/show.html.erb within layouts/application (34.8ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 266ms (Views: 242.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-20 19:10:13 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered events/_new.html.erb (3.2ms)
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date < '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:24
+  Rendered users/show.html.erb within layouts/application (32.8ms)
+  Rendered shared/_nav.html.erb (0.9ms)
+Completed 200 OK in 2405ms (Views: 2368.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-20 19:11:17 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (7.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered events/_new.html.erb (2.5ms)
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mEvent Load (1.6ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date < '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:24
+  Rendered users/show.html.erb within layouts/application (33.1ms)
+  Rendered shared/_nav.html.erb (0.6ms)
+Completed 200 OK in 2515ms (Views: 2472.8ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 19:22:12 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (21.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (32.3ms)
+Completed 200 OK in 542ms (Views: 511.7ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/events/1" for ::1 at 2020-01-20 19:22:14 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:25
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 1]]
+  ↳ app/views/events/show.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  Rendered events/show.html.erb within layouts/application (74.5ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 280ms (Views: 252.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/logout" for ::1 at 2020-01-20 19:47:20 +0300
+Processing by SessionController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-01-20 19:47:20 +0300
+Processing by SessionController#new as HTML
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (18.3ms)
+Completed 200 OK in 2136ms (Views: 2131.5ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/login" for ::1 at 2020-01-20 19:47:27 +0300
+Processing by SessionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gq5FtKr1hRpG+tTWRvYicnoMbjv62OvB7qDyGht6kWFDWQU0IFkpF5+2gZwcimOHGiANeflfb5wm3jE6sbTyGA==", "session"=>{"id"=>"4"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/session_controller.rb:7
+Completed 404 Not Found in 6ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=4):
+  
+app/controllers/session_controller.rb:7:in `create'
+Started POST "/login" for ::1 at 2020-01-20 19:47:35 +0300
+Processing by SessionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A7VBY0XoIu0gHiHIae5TVXTN9v1J3gcyTdxmzZBDs0Nw7tUX80LySHr8v1HEXLYwejVYRljEQVqDq2DY3YuFXw==", "session"=>{"id"=>"3"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/session_controller.rb:7
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=3):
+  
+app/controllers/session_controller.rb:7:in `create'
+Started POST "/login" for ::1 at 2020-01-20 19:47:42 +0300
+Processing by SessionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A7VBY0XoIu0gHiHIae5TVXTN9v1J3gcyTdxmzZBDs0Nw7tUX80LySHr8v1HEXLYwejVYRljEQVqDq2DY3YuFXw==", "session"=>{"id"=>"2"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/session_controller.rb:7
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 15ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-20 19:47:42 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (1.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mEvent Load (1.7ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:14
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date < '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:21
+  Rendered events/_new.html.erb (2.8ms)
+  Rendered users/show.html.erb within layouts/application (42.5ms)
+  Rendered shared/_nav.html.erb (0.6ms)
+Completed 200 OK in 327ms (Views: 241.5ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-20 19:49:24 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:7
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:15
+  Rendered events/_new.html.erb (3.4ms)
+  Rendered users/show.html.erb within layouts/application (27.0ms)
+  Rendered shared/_nav.html.erb (0.7ms)
+Completed 200 OK in 234ms (Views: 208.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-20 19:49:38 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:7
+  [1m[36mEvent Load (1.4ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:15
+  Rendered events/_new.html.erb (2.3ms)
+  Rendered users/show.html.erb within layouts/application (16.2ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 224ms (Views: 193.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-20 19:49:57 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:7
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:15
+  Rendered events/_new.html.erb (2.1ms)
+  Rendered users/show.html.erb within layouts/application (14.7ms)
+  Rendered shared/_nav.html.erb (0.7ms)
+Completed 200 OK in 207ms (Views: 188.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-20 19:50:30 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (1.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:7
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:15
+  Rendered events/_new.html.erb (2.3ms)
+  Rendered users/show.html.erb within layouts/application (33.8ms)
+  Rendered shared/_nav.html.erb (0.5ms)
+Completed 200 OK in 293ms (Views: 260.4ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-20 19:51:11 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mEvent Load (2.2ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:16
+  Rendered events/_new.html.erb (2.0ms)
+  Rendered users/show.html.erb within layouts/application (16.1ms)
+  Rendered shared/_nav.html.erb (0.7ms)
+Completed 200 OK in 205ms (Views: 185.3ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-20 19:51:31 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (2.4ms)
+  Rendered users/show.html.erb within layouts/application (11.5ms)
+  Rendered shared/_nav.html.erb (0.7ms)
+Completed 200 OK in 231ms (Views: 188.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-20 19:51:54 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (6.2ms)
+  Rendered users/show.html.erb within layouts/application (16.3ms)
+  Rendered shared/_nav.html.erb (0.9ms)
+Completed 200 OK in 224ms (Views: 207.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-20 19:52:15 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (1.8ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (8.3ms)
+  Rendered users/show.html.erb within layouts/application (23.7ms)
+  Rendered shared/_nav.html.erb (0.7ms)
+Completed 200 OK in 2449ms (Views: 2433.5ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-20 19:52:36 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (2.8ms)
+  Rendered users/show.html.erb within layouts/application (11.5ms)
+  Rendered shared/_nav.html.erb (0.7ms)
+Completed 200 OK in 2486ms (Views: 2466.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-20 19:53:01 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (3.0ms)
+  Rendered users/show.html.erb within layouts/application (13.0ms)
+  Rendered shared/_nav.html.erb (1.2ms)
+Completed 200 OK in 200ms (Views: 183.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-20 19:55:44 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (3.0ms)
+  Rendered users/show.html.erb within layouts/application (12.0ms)
+  Rendered shared/_nav.html.erb (3.2ms)
+Completed 200 OK in 232ms (Views: 206.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-20 19:56:28 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (5.9ms)
+  Rendered users/show.html.erb within layouts/application (14.1ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 212ms (Views: 190.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-20 19:56:50 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (6.1ms)
+  Rendered users/show.html.erb within layouts/application (22.2ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 279ms (Views: 256.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 19:57:02 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (4.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (18.1ms)
+Completed 200 OK in 218ms (Views: 215.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/events" for ::1 at 2020-01-20 19:57:32 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n+k2gcyY8UG78jzddV0ruhKTNjQG26nVHwR7OxPaJsHssqL1ejIh5OEQokTY787fHGuYjxfB773Rc30uXhIQ3Q==", "event"=>{"title"=>"Absolution Party", "description"=>"DJs", "date"=>""}, "commit"=>"create event"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:17
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/events_controller.rb:17
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::MissingTemplate (Missing template events/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "F:/Microverse/Projects/Rails/private-events/app/views"
+):
+  
+app/controllers/events_controller.rb:20:in `create'
+Started POST "/events" for ::1 at 2020-01-20 20:00:34 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n+k2gcyY8UG78jzddV0ruhKTNjQG26nVHwR7OxPaJsHssqL1ejIh5OEQokTY787fHGuYjxfB773Rc30uXhIQ3Q==", "event"=>{"title"=>"Absolution Party", "description"=>"DJs", "date"=>""}, "commit"=>"create event"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+No template found for EventsController#create, rendering head :no_content
+Completed 204 No Content in 513ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-20 20:03:37 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (5.0ms)
+  Rendered users/show.html.erb within layouts/application (14.9ms)
+  Rendered shared/_nav.html.erb (0.9ms)
+Completed 200 OK in 279ms (Views: 211.1ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/events" for ::1 at 2020-01-20 20:03:44 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lAfLDWAXLGHcrJSmMNwzDBBfFqyVuJK3TlI8n42QC7rnXF951r38xIZOCj+dbtZpHqe4F4Si1N+AJTqKwFg9pg==", "event"=>{"title"=>"Absolution Party", "description"=>"Djs", "date"=>""}, "commit"=>"create event"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+No template found for EventsController#create, rendering head :no_content
+Completed 204 No Content in 384ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-20 20:05:04 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (6.8ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (5.7ms)
+  Rendered users/show.html.erb within layouts/application (50.3ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 378ms (Views: 291.3ms | ActiveRecord: 12.5ms)
+
+
+Started POST "/events" for ::1 at 2020-01-20 20:05:11 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4VqR+fwI2i2AoHm+T/52j/sm0SWeFm/G/ccOy7Cr/GeSAQWNSqIKiNpC5yfiTJPq9d5/no8MKa4zsAje/WPKew==", "event"=>{"title"=>"Absolution Party", "description"=>"djs", "date"=>""}, "commit"=>"create event"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (11.6ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <br>
+    2: <div class="row justify-content-center">
+    3: <h4>Hey <%=@user.name%></h4>
+    4: </div>
+    5: <br>
+    6: <br>
+  
+app/views/users/show.html.erb:3:in `_app_views_users_show_html_erb__261718580_146078780'
+app/controllers/events_controller.rb:20:in `create'
+Started POST "/events" for ::1 at 2020-01-20 20:07:11 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4VqR+fwI2i2AoHm+T/52j/sm0SWeFm/G/ccOy7Cr/GeSAQWNSqIKiNpC5yfiTJPq9d5/no8MKa4zsAje/WPKew==", "event"=>{"title"=>"Absolution Party", "description"=>"djs", "date"=>""}, "commit"=>"create event"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (5.5ms)
+Completed 500 Internal Server Error in 130ms (ActiveRecord: 6.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     8:     <div class="col-4">
+     9:       <h5>Events you've created:</h5>
+    10:         <ul>
+    11:             <%@events.each do |x|%>
+    12:               <li><%=x.title%></li>
+    13:             <%end%>
+    14:         </ul>
+  
+app/views/users/show.html.erb:11:in `_app_views_users_show_html_erb__261718580_124901500'
+app/controllers/events_controller.rb:20:in `create'
+Started POST "/events" for ::1 at 2020-01-20 20:10:28 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4VqR+fwI2i2AoHm+T/52j/sm0SWeFm/G/ccOy7Cr/GeSAQWNSqIKiNpC5yfiTJPq9d5/no8MKa4zsAje/WPKew==", "event"=>{"title"=>"Absolution Party", "description"=>"djs", "date"=>""}, "commit"=>"create event"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:16
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (4.5ms)
+  Rendered users/show.html.erb within layouts/application (14.7ms)
+  Rendered shared/_nav.html.erb (0.6ms)
+Completed 200 OK in 610ms (Views: 457.3ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 20:10:47 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (6.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (4.2ms)
+Completed 200 OK in 190ms (Views: 183.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 20:10:52 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (3.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (2.9ms)
+Completed 200 OK in 181ms (Views: 178.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-20 20:11:03 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (3.5ms)
+  Rendered users/show.html.erb within layouts/application (14.5ms)
+  Rendered shared/_nav.html.erb (0.9ms)
+Completed 200 OK in 235ms (Views: 213.5ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/events" for ::1 at 2020-01-20 20:11:08 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y9KQGUJTopzmtpxi5wUyFLgqNrUHQfJXniAy0/X929AQiQRt9PlyObxUAvtKt9dxttKYDhZbtD9QVzTGuDXtzA==", "event"=>{"title"=>"Absolution Party", "description"=>"djs", "date"=>""}, "commit"=>"create event"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (4.8ms)
+  Rendered users/show.html.erb within layouts/application (21.5ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 402ms (Views: 353.6ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/events" for ::1 at 2020-01-20 20:13:52 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SgrDYGDhCr4e03RXF5jg1+UtDTA1hnBhZBDDXdsjyso5UVcU1kvaG0Qx6s66KgWy69WjiyScNgmqZ8VIluv81g==", "event"=>{"title"=>"Absolution Party", "description"=>"djs", "date"=>""}, "commit"=>"create event"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (3.7ms)
+  Rendered users/show.html.erb within layouts/application (41.8ms)
+  Rendered shared/_nav.html.erb (1.0ms)
+Completed 200 OK in 622ms (Views: 597.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/logout" for ::1 at 2020-01-20 20:22:59 +0300
+Processing by SessionController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-01-20 20:22:59 +0300
+Processing by SessionController#new as HTML
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (37.0ms)
+Completed 200 OK in 559ms (Views: 554.0ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/login" for ::1 at 2020-01-20 20:23:02 +0300
+Processing by SessionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kfK1UlZhY/pqPhi4legtA4ytS46gVabgYO8x9NKQ9R9QBfXS3M3P97NyTfLPlGz27IEozKPSIr2okfLUeF6WZg==", "session"=>{"id"=>"1"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/session_controller.rb:7
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 26ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-20 20:23:02 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (4.1ms)
+  Rendered users/show.html.erb within layouts/application (19.3ms)
+  Rendered shared/_nav.html.erb (0.6ms)
+Completed 200 OK in 343ms (Views: 286.7ms | ActiveRecord: 6.9ms)
+
+
+Started POST "/events" for ::1 at 2020-01-20 20:23:12 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XF4A5+/wuI82W/a5ulZJ70xjCV0iNtDyhMJzyyIK3p4vBZSTWVpoKmy5aCAX5KyKQpun5jMslppKtXXeb8Logg==", "event"=>{"title"=>"Absolution Party", "description"=>"djs", "date"=>""}, "commit"=>"create event"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (4.0ms)
+  Rendered users/show.html.erb within layouts/application (65.0ms)
+  Rendered shared/_nav.html.erb (0.6ms)
+Completed 200 OK in 394ms (Views: 363.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 20:23:17 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (5.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (2.9ms)
+Completed 200 OK in 226ms (Views: 221.0ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/events" for ::1 at 2020-01-20 20:23:49 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XF4A5+/wuI82W/a5ulZJ70xjCV0iNtDyhMJzyyIK3p4vBZSTWVpoKmy5aCAX5KyKQpun5jMslppKtXXeb8Logg==", "event"=>{"title"=>"Absolution Party", "description"=>"Absolute party to get everyone happy", "date"=>""}, "commit"=>"create event"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (8.3ms)
+  Rendered users/show.html.erb within layouts/application (17.8ms)
+  Rendered shared/_nav.html.erb (1.3ms)
+Completed 200 OK in 549ms (Views: 529.8ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/events" for ::1 at 2020-01-20 20:24:10 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FGRqg1ouwIaqM1Sy3mzWxRdzaX7/K21wMApAFcKeUdxnP/737IQQI/DRyitz3jOgGYvHxe4xKxj+fUYAj1ZnwA==", "event"=>{"title"=>"Absolution Party", "description"=>"Absolution Party", "date"=>"2020-01-21"}, "commit"=>"create event"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:16
+  [1m[36mEvent Create (2.6ms)[0m  [1m[32mINSERT INTO "events" ("title", "description", "date", "created_at", "updated_at", "creator_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Absolution Party"], ["description", "Absolution Party"], ["date", "2020-01-21 00:00:00"], ["created_at", "2020-01-20 17:24:10.831970"], ["updated_at", "2020-01-20 17:24:10.831970"], ["creator_id", 1]]
+  ↳ app/controllers/events_controller.rb:16
+  [1m[35m (25.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 59ms (ActiveRecord: 28.3ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-20 20:24:10 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (3.1ms)
+  Rendered users/show.html.erb within layouts/application (48.0ms)
+  Rendered shared/_nav.html.erb (0.7ms)
+Completed 200 OK in 369ms (Views: 337.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 20:24:17 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (6.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (4.3ms)
+Completed 200 OK in 238ms (Views: 233.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/events/3" for ::1 at 2020-01-20 20:24:18 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:30
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 3]]
+  ↳ app/views/events/show.html.erb:5
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  Rendered events/show.html.erb within layouts/application (43.8ms)
+  Rendered shared/_nav.html.erb (1.6ms)
+Completed 200 OK in 227ms (Views: 217.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/logout" for ::1 at 2020-01-20 20:24:25 +0300
+Processing by SessionController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-01-20 20:24:26 +0300
+Processing by SessionController#new as HTML
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (3.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (4.0ms)
+Completed 200 OK in 207ms (Views: 201.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/login" for ::1 at 2020-01-20 20:24:28 +0300
+Processing by SessionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"L0kW3N/wUWOt2BYZKfGWxKR5Z3DNX8yDW6hn6MTTDQ7uvlZcVVz9bnSUQ1NzjdcxxFUEMs7YSN6T1qTIbh1udw==", "session"=>{"id"=>"2"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/session_controller.rb:7
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 6ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-20 20:24:28 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (2.0ms)
+  Rendered users/show.html.erb within layouts/application (15.2ms)
+  Rendered shared/_nav.html.erb (0.5ms)
+Completed 200 OK in 243ms (Views: 227.6ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 20:24:34 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (23.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (3.3ms)
+Completed 200 OK in 218ms (Views: 213.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/events/3" for ::1 at 2020-01-20 20:24:36 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:30
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 3]]
+  ↳ app/views/events/show.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  Rendered events/show.html.erb within layouts/application (17.8ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 200ms (Views: 193.1ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/bookings" for ::1 at 2020-01-20 20:24:37 +0300
+Processing by BookingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mbQeOf+zLTbM58MgGJ2IbF1o1LQeUOVVcQH1KU7D85dzThw358RjBv0zHfeC5a57kLYG9yTocFp+8ieDTZH3jQ==", "booked_event_id"=>"3", "attending"=>"true", "commit"=>"Attend this event"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:11
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (1.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:12
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:12
+  [1m[36mBooking Create (1.8ms)[0m  [1m[32mINSERT INTO "bookings" ("booked_event_id", "event_attendee_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["booked_event_id", 3], ["event_attendee_id", 2], ["created_at", "2020-01-20 17:24:37.896877"], ["updated_at", "2020-01-20 17:24:37.896877"]]
+  ↳ app/controllers/bookings_controller.rb:12
+  [1m[35m (14.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:12
+No template found for BookingsController#create, rendering head :no_content
+Completed 204 No Content in 266ms (ActiveRecord: 18.0ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 20:24:46 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (21.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (5.2ms)
+Completed 200 OK in 230ms (Views: 225.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events/3" for ::1 at 2020-01-20 20:24:53 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:30
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 3]]
+  ↳ app/views/events/show.html.erb:5
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  Rendered events/show.html.erb within layouts/application (25.3ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 215ms (Views: 203.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 20:25:36 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (7.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (22.2ms)
+Completed 200 OK in 462ms (Views: 455.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/events/2" for ::1 at 2020-01-20 20:25:39 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:30
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 2]]
+  ↳ app/views/events/show.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  Rendered events/show.html.erb within layouts/application (17.0ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 206ms (Views: 181.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 20:25:40 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (9.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (27.3ms)
+Completed 200 OK in 331ms (Views: 327.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/events/1" for ::1 at 2020-01-20 20:25:42 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:30
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 1]]
+  ↳ app/views/events/show.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  Rendered events/show.html.erb within layouts/application (16.6ms)
+  Rendered shared/_nav.html.erb (1.1ms)
+Completed 200 OK in 191ms (Views: 180.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 20:25:48 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (10.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (3.2ms)
+Completed 200 OK in 234ms (Views: 222.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/events/1" for ::1 at 2020-01-20 20:45:06 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:30
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 1]]
+  ↳ app/views/events/show.html.erb:5
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  Rendered events/show.html.erb within layouts/application (50.0ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 288ms (Views: 225.0ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/events/2" for ::1 at 2020-01-20 20:45:09 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (11.8ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:30
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 2]]
+  ↳ app/views/events/show.html.erb:5
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:10
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  Rendered events/show.html.erb within layouts/application (23.0ms)
+  Rendered shared/_nav.html.erb (0.5ms)
+Completed 200 OK in 385ms (Views: 230.1ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/logout" for ::1 at 2020-01-20 20:45:12 +0300
+Processing by SessionController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-01-20 20:45:12 +0300
+Processing by SessionController#new as HTML
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (3.6ms)
+Completed 200 OK in 191ms (Views: 177.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for ::1 at 2020-01-20 20:45:14 +0300
+Processing by SessionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FOBMwimdQ1AsLz7UJ/A30NvSzxaygZtjiVykURhay/nVFwxCozHvXfVja559jHYlu/6sVLEGHz5BImdxspSogA==", "session"=>{"id"=>"2"}, "commit"=>"Login"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/session_controller.rb:7
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 7ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-20 20:45:14 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (4.7ms)
+  Rendered users/show.html.erb within layouts/application (19.3ms)
+  Rendered shared/_nav.html.erb (1.1ms)
+Completed 200 OK in 245ms (Views: 230.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 20:45:20 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (4.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (3.5ms)
+Completed 200 OK in 200ms (Views: 196.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/events/1" for ::1 at 2020-01-20 20:45:22 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:30
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 1]]
+  ↳ app/views/events/show.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  Rendered events/show.html.erb within layouts/application (18.0ms)
+  Rendered shared/_nav.html.erb (0.5ms)
+Completed 200 OK in 218ms (Views: 210.0ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/bookings" for ::1 at 2020-01-20 20:45:24 +0300
+Processing by BookingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AXcVDUxCnURtl1Bgz9/KhKc7vXD0ZUMnSiGuYNVkW2nrjRcDVDXTdFxDjrdVp+yTauVvM87d1ihF0nzK1jZfcw==", "booked_event_id"=>"1", "attending"=>"true", "commit"=>"Attend this event"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:12
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:12
+  [1m[36mBooking Create (1.3ms)[0m  [1m[32mINSERT INTO "bookings" ("booked_event_id", "event_attendee_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["booked_event_id", 1], ["event_attendee_id", 2], ["created_at", "2020-01-20 17:45:24.502725"], ["updated_at", "2020-01-20 17:45:24.502725"]]
+  ↳ app/controllers/bookings_controller.rb:12
+  [1m[35m (20.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:12
+  [1m[36mBooking Load (0.8ms)[0m  [1m[34mSELECT  "bookings".* FROM "bookings" WHERE "bookings"."event_attendee_id" = ? AND (booked_event_id = '1') LIMIT ?[0m  [["event_attendee_id", 2], ["LIMIT", 11]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 22.1ms)
+
+
+  
+  [1m[36mCACHE Booking Load (0.0ms)[0m  [1m[34mSELECT  "bookings".* FROM "bookings" WHERE "bookings"."event_attendee_id" = ? AND (booked_event_id = '1') LIMIT ?[0m  [["event_attendee_id", 2], ["LIMIT", 11]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+NoMethodError (undefined method `update_attributes' for #<Booking::ActiveRecord_AssociationRelation:0x000000000f423498>
+Did you mean?  update_all):
+  
+app/controllers/bookings_controller.rb:14:in `create'
+Started GET "/events" for ::1 at 2020-01-20 20:47:04 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (22.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (30.7ms)
+Completed 200 OK in 360ms (Views: 337.9ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/events/1" for ::1 at 2020-01-20 20:47:06 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:30
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 1]]
+  ↳ app/views/events/show.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  Rendered events/show.html.erb within layouts/application (32.0ms)
+  Rendered shared/_nav.html.erb (0.7ms)
+Completed 200 OK in 243ms (Views: 195.8ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/logout" for ::1 at 2020-01-20 20:47:12 +0300
+Processing by SessionController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-01-20 20:47:12 +0300
+Processing by SessionController#new as HTML
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (3.4ms)
+Completed 200 OK in 262ms (Views: 258.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login" for ::1 at 2020-01-20 20:47:15 +0300
+Processing by SessionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fkA0v0SymhCjhvfahNRgpYU/7rMwUOXSctDPUAFVsUi/t3Q/zh42HXrKopDeqCFQ5RON8TPXYY+6rgxwq5vSMQ==", "session"=>{"id"=>"2"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/session_controller.rb:7
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 5ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-20 20:47:15 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 2]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 2]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (4.5ms)
+  Rendered users/show.html.erb within layouts/application (24.1ms)
+  Rendered shared/_nav.html.erb (1.1ms)
+Completed 200 OK in 335ms (Views: 317.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/logout" for ::1 at 2020-01-20 20:47:23 +0300
+Processing by SessionController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-01-20 20:47:23 +0300
+Processing by SessionController#new as HTML
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (26.6ms)
+Completed 200 OK in 265ms (Views: 260.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for ::1 at 2020-01-20 20:47:26 +0300
+Processing by SessionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yBRqlJvG9XIMBkPH73pjIFGLUiyq9PbVbrJDMX1qtRAJ4yoUEWpZf9VKFo21BiLVMacxbqlzcoimzIAR16TWaQ==", "session"=>{"id"=>"1"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/session_controller.rb:7
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 11ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-20 20:47:26 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (7.1ms)
+  Rendered users/show.html.erb within layouts/application (23.7ms)
+  Rendered shared/_nav.html.erb (2.5ms)
+Completed 200 OK in 360ms (Views: 306.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 20:47:38 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (7.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (4.5ms)
+Completed 200 OK in 191ms (Views: 183.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/events/3" for ::1 at 2020-01-20 20:47:39 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:30
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 3]]
+  ↳ app/views/events/show.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  Rendered events/show.html.erb within layouts/application (16.4ms)
+  Rendered shared/_nav.html.erb (0.7ms)
+Completed 200 OK in 194ms (Views: 181.5ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/bookings" for ::1 at 2020-01-20 20:47:45 +0300
+Processing by BookingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QSOnH/GkMesm8kP8iNh1ptr2XnqV+9bE69v6rAgcVSar2aUR6dN/2xcmnSsSoFOxFyiMOa9DQ8vkKCgGC05RPA==", "booked_event_id"=>"3", "attending"=>"true", "commit"=>"Attend this event"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:12
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:12
+  [1m[36mBooking Create (1.4ms)[0m  [1m[32mINSERT INTO "bookings" ("booked_event_id", "event_attendee_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["booked_event_id", 3], ["event_attendee_id", 1], ["created_at", "2020-01-20 17:47:45.455476"], ["updated_at", "2020-01-20 17:47:45.455476"]]
+  ↳ app/controllers/bookings_controller.rb:12
+  [1m[35m (18.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:12
+  [1m[36mBooking Load (0.5ms)[0m  [1m[34mSELECT  "bookings".* FROM "bookings" WHERE "bookings"."event_attendee_id" = ? AND (booked_event_id = '3') ORDER BY "bookings"."id" ASC LIMIT ?[0m  [["event_attendee_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:13
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:13
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:13
+  [1m[36mBooking Update (4.3ms)[0m  [1m[33mUPDATE "bookings" SET "attending" = ?, "updated_at" = ? WHERE "bookings"."id" = ?[0m  [["attending", 1], ["updated_at", "2020-01-20 17:47:45.495267"], ["id", 5]]
+  ↳ app/controllers/bookings_controller.rb:13
+  [1m[35m (32.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:13
+No template found for BookingsController#create, rendering head :no_content
+Completed 204 No Content in 445ms (ActiveRecord: 59.1ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 20:47:49 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (2.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (38.0ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (25.5ms)
+Completed 200 OK in 263ms (Views: 252.4ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/events/1" for ::1 at 2020-01-20 20:47:50 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:30
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 1]]
+  ↳ app/views/events/show.html.erb:5
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  Rendered events/show.html.erb within layouts/application (21.5ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 246ms (Views: 236.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 20:47:52 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (4.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (3.4ms)
+Completed 200 OK in 317ms (Views: 304.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events/2" for ::1 at 2020-01-20 20:47:53 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:30
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 2]]
+  ↳ app/views/events/show.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  Rendered events/show.html.erb within layouts/application (17.8ms)
+  Rendered shared/_nav.html.erb (0.6ms)
+Completed 200 OK in 201ms (Views: 193.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 20:47:55 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (39.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (5.1ms)
+Completed 200 OK in 326ms (Views: 318.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/events/3" for ::1 at 2020-01-20 20:47:56 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:30
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 3]]
+  ↳ app/views/events/show.html.erb:5
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  Rendered events/show.html.erb within layouts/application (25.2ms)
+  Rendered shared/_nav.html.erb (0.7ms)
+Completed 200 OK in 221ms (Views: 209.8ms | ActiveRecord: 1.5ms)
+
+
+  [1m[36mBooking Load (7.1ms)[0m  [1m[34mSELECT  "bookings".* FROM "bookings" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Started GET "/events" for ::1 at 2020-01-20 20:50:36 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (18.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (26.6ms)
+Completed 200 OK in 293ms (Views: 272.9ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 20:52:31 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (3.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (4.8ms)
+Completed 200 OK in 199ms (Views: 195.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-20 20:52:34 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (9.4ms)
+  Rendered users/show.html.erb within layouts/application (42.4ms)
+  Rendered shared/_nav.html.erb (0.9ms)
+Completed 200 OK in 292ms (Views: 254.8ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-20 20:52:51 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (4.4ms)
+  Rendered users/show.html.erb within layouts/application (16.3ms)
+  Rendered shared/_nav.html.erb (0.9ms)
+Completed 200 OK in 293ms (Views: 281.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 20:53:21 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (4.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (3.8ms)
+Completed 200 OK in 189ms (Views: 185.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events/2" for ::1 at 2020-01-20 20:53:23 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:30
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 2]]
+  ↳ app/views/events/show.html.erb:5
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  Rendered events/show.html.erb within layouts/application (46.9ms)
+  Rendered shared/_nav.html.erb (0.9ms)
+Completed 200 OK in 207ms (Views: 198.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-20 20:53:27 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (4.2ms)
+  Rendered users/show.html.erb within layouts/application (38.3ms)
+  Rendered shared/_nav.html.erb (0.6ms)
+Completed 200 OK in 248ms (Views: 208.6ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-20 20:56:57 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (4.0ms)
+  Rendered users/show.html.erb within layouts/application (24.5ms)
+  Rendered shared/_nav.html.erb (1.1ms)
+Completed 200 OK in 431ms (Views: 339.8ms | ActiveRecord: 6.0ms)
+
+
+Started POST "/events" for ::1 at 2020-01-20 20:57:24 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SLvhbZUDyCSdVKovaBXyp6onwgbCOSS++72lowpVlAA74HUZI6kYgce2NLbFpxfCpN9svdMjYtY1yqO2R52iHA==", "event"=>{"title"=>"New York Funk", "description"=>"Funky Time for everyone", "date"=>"2020-01-30"}, "commit"=>"create event"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:16
+  [1m[36mEvent Create (1.4ms)[0m  [1m[32mINSERT INTO "events" ("title", "description", "date", "created_at", "updated_at", "creator_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "New York Funk"], ["description", "Funky Time for everyone"], ["date", "2020-01-30 00:00:00"], ["created_at", "2020-01-20 17:57:24.623357"], ["updated_at", "2020-01-20 17:57:24.623357"], ["creator_id", 1]]
+  ↳ app/controllers/events_controller.rb:16
+  [1m[35m (24.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 84ms (ActiveRecord: 26.6ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-20 20:57:24 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered events/_new.html.erb (2.8ms)
+  Rendered users/show.html.erb within layouts/application (23.9ms)
+  Rendered shared/_nav.html.erb (0.6ms)
+Completed 200 OK in 383ms (Views: 330.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/events" for ::1 at 2020-01-20 20:57:54 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g7yaPKD0dH5gYCY4IP/a/Yk1jTCvP6nQokFEhJur44nw5w5IFl6k2zqCuKGNTT+Yh80ji74l77hsNkKR1mPVlQ==", "event"=>{"title"=>"Neds", "description"=>"s", "date"=>""}, "commit"=>"create event"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:16
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/events_controller.rb:16
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (4.3ms)
+Completed 500 Internal Server Error in 108ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     8:     <div class="col-4">
+     9:       <h5>Events you've created:</h5>
+    10:         <ul>
+    11:             <%@events.each do |x|%>
+    12:               <li><%=x.title%></li>
+    13:             <%end%>
+    14:         </ul>
+  
+app/views/users/show.html.erb:11:in `_app_views_users_show_html_erb__261718580_123174500'
+app/controllers/events_controller.rb:25:in `create'
+Started GET "/events" for ::1 at 2020-01-20 21:04:06 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  Rendered events/index.html.erb within layouts/application (5.4ms)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <h1>list of events</h1>
+    2: <ol>
+    3: <%@events.each do |x|%>
+    4: <li><%= link_to  "#{x.title}", x%></li>
+    5: <%end%>
+    6: </ol>
+  
+app/views/events/index.html.erb:3:in `_app_views_events_index_html_erb__953012652_147538140'
+Started GET "/events" for ::1 at 2020-01-20 21:04:18 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date > '2020-01-20')[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (17.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (42.2ms)
+Completed 200 OK in 248ms (Views: 230.7ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 21:05:30 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date > '2020-01-20')[0m
+  ↳ app/views/events/index.html.erb:7
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date < '2020-01-20')[0m
+  ↳ app/views/events/index.html.erb:15
+  Rendered events/index.html.erb within layouts/application (6.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (5.6ms)
+Completed 200 OK in 208ms (Views: 196.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 21:05:55 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date > '2020-01-20')[0m
+  ↳ app/views/events/index.html.erb:7
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date < '2020-01-20')[0m
+  ↳ app/views/events/index.html.erb:15
+  Rendered events/index.html.erb within layouts/application (7.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (3.6ms)
+Completed 200 OK in 204ms (Views: 186.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 21:06:28 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date > '2020-01-20')[0m
+  ↳ app/views/events/index.html.erb:12
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date < '2020-01-20')[0m
+  ↳ app/views/events/index.html.erb:20
+  Rendered events/index.html.erb within layouts/application (10.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (2.7ms)
+Completed 200 OK in 216ms (Views: 201.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 21:06:42 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date > '2020-01-20')[0m
+  ↳ app/views/events/index.html.erb:12
+  [1m[36mEvent Load (0.9ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date < '2020-01-20')[0m
+  ↳ app/views/events/index.html.erb:20
+  Rendered events/index.html.erb within layouts/application (13.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (4.9ms)
+Completed 200 OK in 263ms (Views: 248.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-20 21:07:24 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:19
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date < '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:27
+  Rendered events/_new.html.erb (3.1ms)
+  Rendered users/show.html.erb within layouts/application (18.9ms)
+  Rendered shared/_nav.html.erb (1.7ms)
+Completed 200 OK in 261ms (Views: 222.5ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 21:07:32 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (1.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date > '2020-01-20')[0m
+  ↳ app/views/events/index.html.erb:12
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date < '2020-01-20')[0m
+  ↳ app/views/events/index.html.erb:20
+  Rendered events/index.html.erb within layouts/application (12.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (3.5ms)
+Completed 200 OK in 237ms (Views: 231.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-20 21:07:34 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:19
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date < '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:27
+  Rendered events/_new.html.erb (5.1ms)
+  Rendered users/show.html.erb within layouts/application (16.8ms)
+  Rendered shared/_nav.html.erb (2.4ms)
+Completed 200 OK in 224ms (Views: 215.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 21:07:37 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date > '2020-01-20')[0m
+  ↳ app/views/events/index.html.erb:12
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date < '2020-01-20')[0m
+  ↳ app/views/events/index.html.erb:20
+  Rendered events/index.html.erb within layouts/application (21.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (3.4ms)
+Completed 200 OK in 228ms (Views: 217.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/events/1" for ::1 at 2020-01-20 21:07:41 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (1.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:31
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."event_attendee_id" WHERE "bookings"."booked_event_id" = ?[0m  [["booked_event_id", 1]]
+  ↳ app/views/events/show.html.erb:5
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/views/events/show.html.erb:10
+  Rendered events/show.html.erb within layouts/application (46.1ms)
+  Rendered shared/_nav.html.erb (0.7ms)
+Completed 200 OK in 227ms (Views: 205.2ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-20 21:07:44 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:19
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date < '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:27
+  Rendered events/_new.html.erb (3.1ms)
+  Rendered users/show.html.erb within layouts/application (20.0ms)
+  Rendered shared/_nav.html.erb (1.0ms)
+Completed 200 OK in 245ms (Views: 226.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/events" for ::1 at 2020-01-20 21:13:42 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date > '2020-01-20')[0m
+  ↳ app/views/events/index.html.erb:12
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date < '2020-01-20')[0m
+  ↳ app/views/events/index.html.erb:20
+  Rendered events/index.html.erb within layouts/application (14.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendered shared/_nav.html.erb (43.3ms)
+Completed 200 OK in 564ms (Views: 557.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-20 21:13:47 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/session_helper.rb:9
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:11
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date > '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:19
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "bookings" ON "events"."id" = "bookings"."booked_event_id" WHERE "bookings"."event_attendee_id" = ? AND (date < '2020-01-20')[0m  [["event_attendee_id", 1]]
+  ↳ app/views/users/show.html.erb:27
+  Rendered events/_new.html.erb (2.7ms)
+  Rendered users/show.html.erb within layouts/application (23.2ms)
+  Rendered shared/_nav.html.erb (1.1ms)
+Completed 200 OK in 372ms (Views: 311.0ms | ActiveRecord: 2.0ms)
+
+

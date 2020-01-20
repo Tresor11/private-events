@@ -7,8 +7,11 @@ class BookingsController < ApplicationController
   end
 
   def create
-    event = Event.find(params[:booked_event_id])
-    current_user.bookings.create(booked_event_id: event.id, attending: true)
+    # current_user.bookings.create(booked_event_id: , attending: true)
+    @event = Event.find_by(id: params[:booked_event_id])
+    current_user.attended_events << @event
+    current_user.bookings.where('booked_event_id = ?', params[:booked_event_id]).first.update_attributes(attending: true)
+    redirect_to current_user
   end
 
   private
