@@ -6629,3 +6629,14 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 76ms (Views: 68.9ms | ActiveRecord: 1.1ms)
 
 
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mBooking Load (27.9ms)[0m  [1m[34mSELECT  "bookings".* FROM "bookings" WHERE "bookings"."event_attendee_id" = ? LIMIT ?[0m  [["event_attendee_id", 1], ["LIMIT", 11]]
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT  "bookings".* FROM "bookings" WHERE "bookings"."event_attendee_id" = ? LIMIT ?[0m  [["event_attendee_id", 1], ["LIMIT", 11]]
+  [1m[35m (67.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Load (144.8ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBooking Create (1358.4ms)[0m  [1m[32mINSERT INTO "bookings" ("booked_event_id", "event_attendee_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["booked_event_id", 1], ["event_attendee_id", 1], ["created_at", "2020-01-21 17:57:09.836162"], ["updated_at", "2020-01-21 17:57:09.836162"]]
+  [1m[35m (349.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (61.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
