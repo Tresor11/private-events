@@ -240,7 +240,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.4.1)
   byebug
-  capybara (>= 2.15)
+  capybara
   coffee-rails (~> 4.2)
   database_cleaner (~> 1.5, >= 1.5.3)
   jbuilder (~> 2.5)
@@ -260,7 +260,7 @@ DEPENDENCIES
   webdrivers (~> 3.2)
 
 RUBY VERSION
-   ruby 2.6.4p104
+   ruby 2.6.5p114
 
 BUNDLED WITH
    2.0.2
