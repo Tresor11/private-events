@@ -1,0 +1,25 @@
+<br>
+<div class="row justify-content-center">
+<h1>List of Events</h1>
+</div>
+<br>
+<br>
+
+<div class="row justify-content-center">
+    <div class="col-4">
+        <h5>Upcoming Events:</h5>
+        <ol id="upcoming">
+          <%@upcoming.each do |x|%>
+            <li><%= link_to  "#{x.title}", x%></li>
+          <%end%>
+        </ol>
+    </div>
+    <div class="col-4">
+        <h5>Past events:</h5>
+        <ol id="past">
+          <%@past.each do |x|%>
+            <li><%= link_to  "#{x.title}", x%></li>
+          <%end%>
+        </ol>
+    </div>
+</div>

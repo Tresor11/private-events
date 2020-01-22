@@ -1,0 +1,5 @@
+<%= form_for(@booking) do |f| %>
+<%= hidden_field_tag :booked_event_id, @event.id %>
+<%= hidden_field_tag :attending, true %>
+<%=f.submit 'Attend this event'%>
+<% end %>

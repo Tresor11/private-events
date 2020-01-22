@@ -10,6 +10,14 @@
   </head>
 
   <body>
+  <% flash.each do |type, message|%>
+  <div class="alert alert-<%=type%>" role="alert">
+    <%= message%>
+  </div>
+  <%end%>
+  <div class="container">
+  <%= render  "shared/nav" %>
     <%= yield %>
+  </div>
   </body>
 </html>

@@ -1,0 +1,14 @@
+<h1><%=@event.title%></h1>
+<p><%=@event.description%></p>
+<h4>list of attendees</h4>
+<ol>
+<%@attendees.each do |x|%>
+<li><%=x.name%></li>
+<%end%>
+</ol>
+
+<%= form_for(current_user.bookings.create()) do |f| %>
+<%= hidden_field_tag :booked_event_id, @event.id %>
+<%= hidden_field_tag :attending, true %>
+<%=f.submit 'Attend this event'%>
+<% end %>
