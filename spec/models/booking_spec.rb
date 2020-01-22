@@ -10,8 +10,8 @@ RSpec.describe Booking, type: :model do
     @booking = @user.bookings.create
   end
 
-  context 'with valid user id' do
-    it 'should create an event' do
+  context 'when the booked_event_id is not provided' do
+    it 'it shoul not create a booking' do
       expect(@booking).to_not be_valid
     end
   end

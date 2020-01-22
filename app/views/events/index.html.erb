@@ -8,7 +8,7 @@
 <div class="row justify-content-center">
     <div class="col-4">
         <h5>Upcoming Events:</h5>
-        <ol>
+        <ol id="upcoming">
           <%@upcoming.each do |x|%>
             <li><%= link_to  "#{x.title}", x%></li>
           <%end%>
@@ -16,7 +16,7 @@
     </div>
     <div class="col-4">
         <h5>Past events:</h5>
-        <ol>
+        <ol id="past">
           <%@past.each do |x|%>
             <li><%= link_to  "#{x.title}", x%></li>
           <%end%>
